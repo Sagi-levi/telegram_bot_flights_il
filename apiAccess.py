@@ -2,15 +2,13 @@ from types import SimpleNamespace
 
 import requests
 import json
+import secrets
 
 
 def Get_flight_info(params):
     url = f"https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/IL/USD/en-US/{params[0]}/{params[1]}/{params[2]}"
 
-    headers = {
-        'x-rapidapi-host': "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-        'x-rapidapi-key': "3c7a176513msh7d7f94d6f1be24dp143570jsn75bc41bccdc7"
-    }
+    headers = secrets.HEADERS
 
     response = requests.request("GET", url, headers=headers)
     print(response.json())
@@ -23,10 +21,7 @@ def Get_flight_info(params):
 def Get_flight_info_dic(params):
     url = f"https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/IL/USD/en-US/{params[0]}/{params[1]}/{params[2]}"
 
-    headers = {
-        'x-rapidapi-host': "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-        'x-rapidapi-key': "3c7a176513msh7d7f94d6f1be24dp143570jsn75bc41bccdc7"
-    }
+    headers = secrets.HEADERS
 
     response = requests.request("GET", url, headers=headers)
 

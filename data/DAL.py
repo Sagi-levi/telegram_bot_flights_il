@@ -1,8 +1,10 @@
 from pandas import DataFrame
 
+import secrets
+
 
 def get_database():
-    CONNECTION_STRING = "mongodb+srv://SGLV:rxQC*3vPuXi38nc@yadstaim.gvmoh.mongodb.net/test"
+    CONNECTION_STRING = secrets.CONNECTION_STRING
 
     # Create a connection using MongoClient. You can import MongoClient or use pymongo.MongoClient
     from pymongo import MongoClient
@@ -44,9 +46,3 @@ def Add_new_best_flight(flight):
     collection_name = dbname["currentBestFlights"]
     collection_name.insert(flight)
 
-# def Replace_best_flight(flight_id):
-#     filter = {'_id': flight_id}
-#     newValue
-#     dbname = get_database()
-#     collection_name = dbname["currentBestFlights"]
-#     collection_name.update_one(filter)
