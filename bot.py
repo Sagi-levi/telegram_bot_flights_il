@@ -4,7 +4,7 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, CallbackContext
 import apiAccess as flightApi
 from data import DAL
-import Constants
+import secrets
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO
@@ -119,7 +119,7 @@ def second_menu_keyboard():
 
 
 def main() -> None:
-    updater = Updater(Constants.API_KEY)
+    updater = Updater(secrets.API_KEY)
 
     updater.dispatcher.add_handler(CommandHandler('start', start))
     updater.dispatcher.add_handler(CallbackQueryHandler(main_menu, pattern='main'))
